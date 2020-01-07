@@ -5,7 +5,9 @@
   "require": {
     "php": ">=7.3.0",
     "maybe/apicrypt": "dev-master",
-    "monolog/monolog": "^2.0@dev"
+    "monolog/monolog": "^2.0@dev",
+    "illuminate/database": "*",
+    "twig/twig": "*"
   },
   "autoload": {
     "classmap": [
@@ -29,5 +31,11 @@
       "email": "laisxn@outlook.com"
     }
   ],
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://mirrors.aliyun.com/composer/"
+    }
+  },
   "minimum-stability": "dev"
 }
