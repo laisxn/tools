@@ -11,14 +11,6 @@ class Bootstrap extends Bootstrap_Abstract
     public $config;
 
     /**
-     * // 加载 Composer
-     */
-    public function _initAutoload()
-    {
-        require ROOT_PATH.'/vendor/autoload.php';
-    }
-
-    /**
      * init config
      */
     public function _initConfig()
@@ -28,11 +20,39 @@ class Bootstrap extends Bootstrap_Abstract
     }
 
     /**
+     * start debug
+     */
+    public function _initIsDebug()
+    {
+        if ($this->config->project->debug) {
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL);
+        }
+    }
+
+    /**
      * start session
      */
     public function _initStartSession()
     {
         Yaf\Session::getInstance()->start();
+    }
+
+    /**
+     * 初始化数据库
+     */
+    public function _initCache()
+    {
+        //初始化 illuminate/database
+        $capsule = new Illuminate\Cache\CacheManager();
+        $capsule->addConnection($this->config->database->toArray());
+        //数据库事件
+        //$capsule->setEventDispatcher(new \Illuminate\Events\Dispatcher(new \Illuminate\Container\Container));
+        $capsule->setAsGlobal();
+        //开启Eloquent ORM
+        $capsule->bootEloquent();
+
+        class_alias('\Illuminate\Database\Capsule\Manager', 'DB');
     }
 
     /**
@@ -52,7 +72,18 @@ class Bootstrap extends Bootstrap_Abstract
         class_alias('\Illuminate\Database\Capsule\Manager', 'DB');
     }
 
+    /**
+     * 注册插件
+     * @param Yaf\Dispatcher $dispatcher
+     */
+    public function _initPlugin(Yaf\Dispatcher $dispatcher)
+    {
 
+        $sysLog = new RouterPlugin();
+        $dispatcher->registerPlugin($sysLog);
+        \Illuminate\Support\Facades\Cache::add('aa', 12);
+        dd(\Illuminate\Support\Facades\Cache::get('aa'));
+    }
 
 
 }
