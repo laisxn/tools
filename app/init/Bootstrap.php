@@ -41,23 +41,6 @@ class Bootstrap extends Bootstrap_Abstract
     /**
      * 初始化数据库
      */
-    public function _initCache()
-    {
-        //初始化 illuminate/database
-        $capsule = new Illuminate\Cache\CacheManager();
-        $capsule->addConnection($this->config->database->toArray());
-        //数据库事件
-        //$capsule->setEventDispatcher(new \Illuminate\Events\Dispatcher(new \Illuminate\Container\Container));
-        $capsule->setAsGlobal();
-        //开启Eloquent ORM
-        $capsule->bootEloquent();
-
-        class_alias('\Illuminate\Database\Capsule\Manager', 'DB');
-    }
-
-    /**
-     * 初始化数据库
-     */
     public function _initDefaultDbAdapter()
     {
         //初始化 illuminate/database
@@ -78,11 +61,8 @@ class Bootstrap extends Bootstrap_Abstract
      */
     public function _initPlugin(Yaf\Dispatcher $dispatcher)
     {
-
         $sysLog = new RouterPlugin();
         $dispatcher->registerPlugin($sysLog);
-        \Illuminate\Support\Facades\Cache::add('aa', 12);
-        dd(\Illuminate\Support\Facades\Cache::get('aa'));
     }
 
 
