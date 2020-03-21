@@ -1,6 +1,7 @@
 ##### yaf php.ini配置
 ```
 yaf.use_namespace=1
+yaf.use_spl_autoload=1
 ```
 ##### composer config
 ```
