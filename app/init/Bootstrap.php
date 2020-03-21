@@ -11,20 +11,23 @@ class Bootstrap extends Bootstrap_Abstract
     public $config;
 
     /**
-     * // 加载 Composer
-     */
-    public function _initAutoload()
-    {
-        require ROOT_PATH.'/vendor/autoload.php';
-    }
-
-    /**
      * init config
      */
     public function _initConfig()
     {
         Yaf\Registry::set('config', Yaf\Application::app()->getConfig());
         $this->config = Yaf\Registry::get('config');
+    }
+
+    /**
+     * start debug
+     */
+    public function _initIsDebug()
+    {
+        if ($this->config->project->debug) {
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL);
+        }
     }
 
     /**
@@ -52,7 +55,15 @@ class Bootstrap extends Bootstrap_Abstract
         class_alias('\Illuminate\Database\Capsule\Manager', 'DB');
     }
 
-
+    /**
+     * 注册插件
+     * @param Yaf\Dispatcher $dispatcher
+     */
+    public function _initPlugin(Yaf\Dispatcher $dispatcher)
+    {
+        $sysLog = new RouterPlugin();
+        $dispatcher->registerPlugin($sysLog);
+    }
 
 
 }
