@@ -9,7 +9,7 @@
     "classmap": [
     ],
     "psr-4": {
-      "App\\": "app/"
+      "Service\\" : "app/services/"
     },
     "files": [
       "app/init/helpers.php"

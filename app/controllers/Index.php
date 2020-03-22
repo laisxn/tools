@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\User;
-use App\Traits\AdminLog;
+use App\models\User;
+use App\traits\AdminLog;
 use Yaf\Application;
 use Yaf\Controller_Abstract as Controller;
 use Log\log;

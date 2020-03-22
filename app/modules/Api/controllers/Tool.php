@@ -10,12 +10,12 @@ class ToolController extends ApiCommonController
 
     public function indexAction()
     {
-        echo 'welcome';
+        $this->success();
     }
 
     public function loginAction()
     {
-        echo 'ok';
+        $this->success();
     }
 
     /**
@@ -32,7 +32,7 @@ class ToolController extends ApiCommonController
         $barcode->setContent(12314115);
         $file_path = $barcode->createBarcode($file_name);
 
-        echo $file_path;
+        $this->success($file_path);
     }
 
     /**
@@ -54,7 +54,7 @@ class ToolController extends ApiCommonController
         $pdf->setHtmlFunc('deliveryHtml');
         $pdf->createPdf(formatFileName($pdf_name));
 
-        echo $pdf_path;
+        $this->success($pdf_path);
     }
 
 }
