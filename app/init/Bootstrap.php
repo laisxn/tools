@@ -25,8 +25,13 @@ class Bootstrap extends Bootstrap_Abstract
     public function _initIsDebug()
     {
         if ($this->config->project->debug) {
-            ini_set('display_errors', 1);
+            ini_set("display_errors", "On");
+            error_reporting(E_ALL | E_STRICT);
+        } else {
             error_reporting(E_ALL);
+            ini_set('display_errors','Off');
+            ini_set('log_errors', 'On');
+            ini_set('error_log', APP_PATH. '/runtime/error.log');
         }
     }
 
@@ -41,7 +46,7 @@ class Bootstrap extends Bootstrap_Abstract
     /**
      * 初始化数据库
      */
-    public function _initDefaultDbAdapter()
+    /*public function _initDefaultDbAdapter()
     {
         //初始化 illuminate/database
         $capsule = new \Illuminate\Database\Capsule\Manager;
@@ -53,7 +58,7 @@ class Bootstrap extends Bootstrap_Abstract
         $capsule->bootEloquent();
 
         class_alias('\Illuminate\Database\Capsule\Manager', 'DB');
-    }
+    }*/
 
     /**
      * 注册插件

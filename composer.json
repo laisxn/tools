@@ -3,11 +3,7 @@
   "description": "The Tools",
   "type": "project",
   "require": {
-    "php": ">=7.3.0",
-    "maybe/apicrypt": "dev-master",
-    "monolog/monolog": "^2.0@dev",
-    "illuminate/database": "*",
-    "twig/twig": "*"
+    "php": ">=7.3.0"
   },
   "autoload": {
     "classmap": [

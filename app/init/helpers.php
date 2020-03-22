@@ -15,3 +15,15 @@ if (!function_exists('dd'))
         exit(1);
     }
 }
+
+if (!function_exists('formatFileName'))
+{
+    function formatFileName($file_name)
+    {
+        if (stristr(PHP_OS, 'WIN')) {
+            $file_name = iconv('UTF-8', 'GBK', $file_name);
+        }
+        return $file_name;
+    }
+}
+
