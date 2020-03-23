@@ -3,7 +3,8 @@
   "description": "The Tools",
   "type": "project",
   "require": {
-    "php": ">=7.3.0"
+    "php": ">=7.3.0",
+    "phpqrcode/phpqrcode": "*"
   },
   "autoload": {
     "classmap": [

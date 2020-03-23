@@ -4,8 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8ba0e91352f0352cf5780a803f8c86f",
-    "packages": [],
+    "content-hash": "51fb974530715042b0c73a4871cc3d51",
+    "packages": [
+        {
+            "name": "phpqrcode/phpqrcode",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yafangmaster/QRcode.git",
+                "reference": "24094696f394d0579616b7614321958f6d53639c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yafangmaster/QRcode/zipball/24094696f394d0579616b7614321958f6d53639c",
+                "reference": "24094696f394d0579616b7614321958f6d53639c",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "二维码生成组件",
+            "keywords": [
+                "phpqrcode",
+                "qrcode"
+            ],
+            "time": "2017-07-02T12:49:33+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
@@ -15,5 +45,6 @@
     "platform": {
         "php": ">=7.3.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

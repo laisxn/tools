@@ -10,7 +10,6 @@ use Log\log;
 class IndexController extends Controller
 {
     use AdminLog;
-
     public function init()
     {
     }
