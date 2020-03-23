@@ -12,7 +12,7 @@ namespace Api;
       * @param null $data
       * @param string $msg
       */
-    public function success($data = null, $msg = 'success')
+    protected function success($data = null, $msg = 'success')
     {
         $data = [
             'code' => 0,
@@ -26,7 +26,7 @@ namespace Api;
       * @param null $data
       * @param string $msg
       */
-    public function fail($data = null, $msg = 'error')
+    protected function fail($data = null, $msg = 'error')
     {
         $data = [
             'code' => 1,
@@ -39,7 +39,7 @@ namespace Api;
      /**
       * @param $data
       */
-    public function response($data) {
+    protected function response($data) {
         echo json_encode($data);
     }
 

@@ -23,7 +23,7 @@ class ToolController extends ApiCommonController
      * @throws BCGArgumentException
      * @throws BCGDrawException
      */
-    public function barcode()
+    public function barcodeAction()
     {
         $barcode = new Barcodegen\Barcode();
         $file_name = 12314115 . '.png';
@@ -39,7 +39,7 @@ class ToolController extends ApiCommonController
      * 生成pdf
      * @throws Exception
      */
-    public function pdf()
+    public function pdfAction()
     {
         $pdf = new Dompdf\Pdf();
 
@@ -57,7 +57,7 @@ class ToolController extends ApiCommonController
         $this->success($pdf_path);
     }
 
-    public function tcppdf()
+    public function tcppdfAction()
     {
         $pdf = new \TCPDF();
         // 设置文档信息
